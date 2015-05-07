@@ -25,17 +25,22 @@ public class Test{
 		return head;
 	}
 
-	public void test(int[] a , int[] b){
-		System.out.println("a: " + Arrays.toString(a));
-		System.out.println("b: " + Arrays.toString(b));
-		Solution.ListNode headA = createList(a);
-		Solution.ListNode headB = createList(b);
+
+
+	public void check(Solution.ListNode headA, Solution.ListNode headB){
 		Solution.ListNode res = s.getIntersectionNode(headA, headB);
 		if(res==null){
 			System.out.println("Interesection: null");
 		}else{
 			System.out.println("Interesection: " + res.val);
 		}
+	}
+	public void test(int[] a , int[] b){
+		System.out.println("a: " + Arrays.toString(a));
+		System.out.println("b: " + Arrays.toString(b));
+		Solution.ListNode headA = createList(a);
+		Solution.ListNode headB = createList(b);
+		check(headA,headB);
 	}
 
 	public int[] fuseArray(int[] array1, int[] array2){
@@ -44,6 +49,8 @@ public class Test{
 		System.arraycopy(array2, 0, fusedArray, array1.length, array2.length);
 		return fusedArray;
 	}
+
+
 
 	public void test(int[] a , int[] b, int[] c){
 		int[] arrayA = fuseArray(a,c);
@@ -65,13 +72,7 @@ public class Test{
 		}
 		listA.next = headC;
 		listB.next = headC;
-
-		Solution.ListNode res = s.getIntersectionNode(headA, headB);
-		if(res==null){
-			System.out.println("Interesection: null");
-		}else{
-			System.out.println("Interesection: " + res.val);
-		}
+		check(headA,headB);
 	}
 
 	public void testNoIntersection(){
